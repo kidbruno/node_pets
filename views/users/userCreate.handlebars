@@ -1,0 +1,37 @@
+<p>criar usuario</p>
+<form action="/user/create" method="POST">
+    
+    <div>
+        <label for="name">Nome:</label>
+        <input type="text" name="name" id="name" placeholder="Digite seu nome:" required>
+    </div>
+
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" placeholder="Digite seu e-mail:" required>
+    </div>
+
+    <div>
+        <label for="password">Senha:</label>
+        <input type="password" name="password" id="password" placeholder="Digite sua Senha:" required>
+    </div>
+
+     <div>
+        <label for="conf_password">Confirmar Senha:</label>
+        <input type="password" name="conf_password" id="conf_password" placeholder="Confirme a Senha:" required>
+    </div> 
+
+    <div>
+        <label for="phone">Telefone:</label>
+        <input type="text" name="phone" id="phone" placeholder="Digite seu Telefone:">
+    </div>
+
+     <div>
+        <label for="image">Imagem:</label>
+        <input type="file" name="image" id="image">
+    </div>
+
+    <div>
+        <input type="submit" value="Cadastrar">
+    </div>
+</form>

@@ -1,0 +1,44 @@
+<h2>Cadastrar Pet</h2>
+<form action="#" method="POST">
+    
+    <div>
+        <label for="raca">Raça:</label>
+        <input type="text" name="raca" id="raca" placeholder="Digite a raça:" required>
+    </div><br/>
+
+     <div>
+        <label for="cor">Cor:</label>
+        <input type="text" name="cor" id="cor" placeholder="Digite a cor:" required>
+    </div><br/>
+
+    <div>
+        <form>
+            <label for="genero">Gênero:</label><br>
+            <div></div><input type="radio" name="genero" value="Masculino" CHECKED> Masculino</div>
+            <div></div><input type="radio" name="genero" value="Feminino" > Feminino</div>
+        </form>
+    </div><br/>
+
+    <div>
+        <label for="peso">Peso:</label>
+        <input type="number" name="peso" id="peso" placeholder="Digite o peso:" required>
+    </div><br/>
+
+    <div>
+        <label for="categoria">Categoria:</label><br>
+        <form>
+            <div><input type="radio" name="categoria" value="gato" CHECKED> Gato</div>
+            <div></div><input type="radio" name="categoria" value="cachorro" > Cachorro</div>
+            <div></div><input type="radio" name="categoria" value="peixe" > Peixe</div>
+        </form>
+    </div> <br/>
+
+     <div>
+        <label for="image">Imagem:</label>
+        <input type="file" name="image" id="image">
+    </div><br/>
+
+    <div>
+        <input type="submit" value="Cadastrar Pet">
+    </div>
+</form>

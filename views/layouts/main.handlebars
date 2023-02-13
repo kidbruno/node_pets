@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetDevShop - O petshop do dev</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" type="/image/png" href="/images/favicon.png" />
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="/">PetDevShop</a>
+        <form method="GET" action="">
+            <input type="search" name="q" placeholder="Pesquise por raça" />
+        </form>
+        <div class="menu">
+            
+          {{#if session.userid}}
+            <a href="/">Dashboard</a> -
+            <a href="/user/logout">Sair</a>
+            <div class="dropdown">
+                <button class="dropbtn">User</button>
+                <div class="dropdown-content">
+                    <a href="/user/edit/{{session.userid}}">Editar</a>
+                    <a href="/pets/create">Cadastrar Pet</a>
+                </div>
+            </div>
+          {{else}}
+            <a href="/user/create">Criar Conta</a> -
+            <a href="/user/login">Logar</a>
+          {{/if}}
+
+        </div>
+    </div>
+</header>
+<nav>
+    <ul>
+        <li class="active"><a href="">Todos</a></li>
+        <li class=""><a href="/pets/dogs">Cachorros</a></li>
+        <li class=""><a href="/pets/cats">Gatos</a></li>
+        <li class=""><a href="/pets/fish">Peixes</a></li>
+    </ul>
+</nav>
+<section class="banner" style="background-image: url('/images/allanimals.jpg')">Todos os animais</section>
+
+{{{body}}}
+
+{{#if messages.message}}
+    {{messages.message}}
+{{/if}}
+
+<footer class="container">
+    Feito com ❤ pela B7Web
+</footer>
+</body>
+</html>

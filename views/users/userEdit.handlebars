@@ -1,0 +1,28 @@
+<p>Editar usuario</p>
+<form action="/user/update" method="POST">
+    
+    <input type="hidden" name="id" value="{{user._id}}">
+
+    <div>
+        <label for="name">Nome:</label>
+        <input type="text" name="name" id="name" value="{{user.name}}">
+    </div>
+
+    <div>
+        <input type="email" name="email" id="name" value="{{user.email}}" readonly>
+    </div>
+
+    <div>
+        <label for="phone">Telefone:</label>
+        <input type="text" name="phone" id="phone" value="{{user.phone}}">
+    </div>
+
+     <div>
+        <label for="image">Imagem:</label>
+        <iframe src="" title="W3Schools Free Online Web Tutorials">{{user.image}}</iframe>
+    </div>
+
+    <div>
+        <input type="submit" value="Editar">
+    </div>
+</form>
