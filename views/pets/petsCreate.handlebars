@@ -1,44 +1,50 @@
-<h2>Cadastrar Pet</h2>
-<form action="#" method="POST">
-    
-    <div>
-        <label for="raca">Raça:</label>
-        <input type="text" name="raca" id="raca" placeholder="Digite a raça:" required>
-    </div><br/>
+<div class="auth-container">
 
-     <div>
-        <label for="cor">Cor:</label>
-        <input type="text" name="cor" id="cor" placeholder="Digite a cor:" required>
-    </div><br/>
+    <h2>Cadastrar Pet</h2>
+    <form action="#" method="POST">
+        
+        <div class="form-control">
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name" placeholder="Digite um nome:" required>
+        </div>
 
-    <div>
-        <form>
+        <div class="form-control">
+            <label for="raca">Raça:</label>
+            <input type="text" name="breed" id="raca" placeholder="Digite a raça:" required>
+        </div>
+
+        <div class="form-control">
+            <label for="cor">Cor:</label>
+            <input type="text" name="color" id="cor" placeholder="Digite a cor:" required>
+        </div>
+
+        <div class="form-control">
+            <label for="peso">Peso:</label>
+            <input type="number" name="weight" id="peso" placeholder="Digite o peso:" required>
+        </div>
+
+        <div class="form-control">    
             <label for="genero">Gênero:</label><br>
-            <div></div><input type="radio" name="genero" value="Masculino" CHECKED> Masculino</div>
-            <div></div><input type="radio" name="genero" value="Feminino" > Feminino</div>
-        </form>
-    </div><br/>
+            <div><input type="radio" name="genre" value="Masculino" CHECKED> Masculino</div>
+            <div><input type="radio" name="genre" value="Feminino" > Feminino</div>
+            <div><input type="radio" name="genre" value="Feminino" > Não Informado</div>
+        </div>
 
-    <div>
-        <label for="peso">Peso:</label>
-        <input type="number" name="peso" id="peso" placeholder="Digite o peso:" required>
-    </div><br/>
+        <div class="form-control">
+            <label for="categoria">Categoria:</label><br>
+            <div><input type="radio" name="category" value="gato" CHECKED> Gato</div>
+            <div><input type="radio" name="category" value="cachorro" > Cachorro</div>
+            <div><input type="radio" name="category" value="peixe" > Peixe</div>    
+        </div>
 
-    <div>
-        <label for="categoria">Categoria:</label><br>
-        <form>
-            <div><input type="radio" name="categoria" value="gato" CHECKED> Gato</div>
-            <div></div><input type="radio" name="categoria" value="cachorro" > Cachorro</div>
-            <div></div><input type="radio" name="categoria" value="peixe" > Peixe</div>
-        </form>
-    </div> <br/>
+        <div>
+            <strong><label for="image">Imagem:</label></strong>
+            <input type="file" name="images" id="image">
+        </div><br/>
 
-     <div>
-        <label for="image">Imagem:</label>
-        <input type="file" name="image" id="image">
-    </div><br/>
+        <div>
+            <input type="submit" value="Cadastrar Pet">
+        </div>
+    </form>
 
-    <div>
-        <input type="submit" value="Cadastrar Pet">
-    </div>
-</form>
+</div>

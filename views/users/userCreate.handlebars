@@ -1,37 +1,41 @@
-<p>criar usuario</p>
-<form action="/user/create" method="POST">
-    
-    <div>
-        <label for="name">Nome:</label>
-        <input type="text" name="name" id="name" placeholder="Digite seu nome:" required>
-    </div>
+<div class="auth-container">
 
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" placeholder="Digite seu e-mail:" required>
-    </div>
+    <h2>Criar Usuário</h2>
+    <form action="/user/create" method="POST">
+        
+        <div class="form-control">
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name" placeholder="Digite seu nome:" required>
+        </div>
 
-    <div>
-        <label for="password">Senha:</label>
-        <input type="password" name="password" id="password" placeholder="Digite sua Senha:" required>
-    </div>
+        <div class="form-control">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" placeholder="Digite seu e-mail:" required>
+        </div>
 
-     <div>
-        <label for="conf_password">Confirmar Senha:</label>
-        <input type="password" name="conf_password" id="conf_password" placeholder="Confirme a Senha:" required>
-    </div> 
+        <div class="form-control">
+            <label for="password">Senha:</label>
+            <input type="password" name="password" id="password" placeholder="Digite sua Senha:" required>
+        </div>
 
-    <div>
-        <label for="phone">Telefone:</label>
-        <input type="text" name="phone" id="phone" placeholder="Digite seu Telefone:">
-    </div>
+        <div class="form-control">
+            <label for="conf_password">Confirmar Senha:</label>
+            <input type="password" name="conf_password" id="conf_password" placeholder="Confirme a Senha:" required>
+        </div> 
 
-     <div>
-        <label for="image">Imagem:</label>
-        <input type="file" name="image" id="image">
-    </div>
+        <div class="form-control">
+            <label for="phone">Telefone:</label>
+            <input type="text" name="phone" id="phone" placeholder="Digite seu Telefone:">
+        </div>
 
-    <div>
-        <input type="submit" value="Cadastrar">
-    </div>
-</form>
+        <div>
+            <strong><label for="image">Imagem:</label></strong>
+            <input type="file" name="image" id="image">
+        </div><br/>
+
+        <div>
+            <input type="submit" value="Cadastrar">
+             <p>Já tem conta? <a href="/user/login">Clique aqui!</a></p>
+        </div>
+    </form>
+</div>

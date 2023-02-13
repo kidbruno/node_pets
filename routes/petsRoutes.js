@@ -7,6 +7,7 @@ router.get('/dogs', PetController.showDogs)
 router.get('/cats', PetController.showCats)
 router.get('/fish', PetController.showFish)
 router.get('/create', PetController.create)
+router.post('/create', PetController.createAction)
 
 
 module.exports = router

@@ -42,16 +42,20 @@
         <li class=""><a href="/pets/fish">Peixes</a></li>
     </ul>
 </nav>
-<section class="banner" style="background-image: url('/images/allanimals.jpg')">Todos os animais</section>
+{{!-- <section class="banner" style="background-image: url('/images/allanimals.jpg')">Todos os animais</section> --}}
+
+
+{{#if messages.message}}
+    <div class="flash-message">
+        {{messages.message}}
+    </div>
+{{/if}}
+
 
 {{{body}}}
 
-{{#if messages.message}}
-    {{messages.message}}
-{{/if}}
-
 <footer class="container">
-    Feito com ❤ pela B7Web
+    Feito com ❤ por SBTech
 </footer>
 </body>
 </html>
