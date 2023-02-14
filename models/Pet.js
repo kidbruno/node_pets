@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 //define a schema
-const PetSchema = new mongoose.Model(
+const Pet = new mongoose.model(
     
     'Pet',
     new Schema({
@@ -16,7 +16,6 @@ const PetSchema = new mongoose.Model(
         images: {type: Array},
         available: {type: Boolean},
         user: Object,
-        adopter: Object
     },
     {timestamps: true}
     )
@@ -24,4 +23,4 @@ const PetSchema = new mongoose.Model(
 
 //available status do pet. Se está adotado ou não 
 
-module.exports = PetSchema
+module.exports = Pet

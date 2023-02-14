@@ -1,7 +1,9 @@
 <div class="auth-container">
 
     <h2>Cadastrar Pet</h2>
-    <form action="#" method="POST">
+    <form action="/pets/create" method="POST">
+
+        <input type="hidden" name="id" value="{{id}}">
         
         <div class="form-control">
             <label for="name">Nome:</label>
@@ -27,7 +29,7 @@
             <label for="genero">Gênero:</label><br>
             <div><input type="radio" name="genre" value="Masculino" CHECKED> Masculino</div>
             <div><input type="radio" name="genre" value="Feminino" > Feminino</div>
-            <div><input type="radio" name="genre" value="Feminino" > Não Informado</div>
+            <div><input type="radio" name="genre" value="Não Informado" > Não Informado</div>
         </div>
 
         <div class="form-control">

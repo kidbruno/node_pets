@@ -23,7 +23,7 @@
                 <button class="dropbtn">User</button>
                 <div class="dropdown-content">
                     <a href="/user/edit/{{session.userid}}">Editar</a>
-                    <a href="/pets/create">Cadastrar Pet</a>
+                    <a href="/pets/create/{{session.userid}}">Cadastrar Pet</a>
                 </div>
             </div>
           {{else}}

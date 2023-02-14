@@ -1,6 +1,6 @@
 const flash = require('express-flash');
-// const Pet = require('../models/Pet')
-// const User = require('../models/User');
+const Pet = require('../models/Pet')
+const User = require('../models/User');
 module.exports = class PetController{
 
     static showDogs(req, res){
@@ -16,46 +16,47 @@ module.exports = class PetController{
     }
 
     static create(req, res){
-        res.render('../views/pets/petsCreate')
+
+        const id = req.params.id
+        res.render('../views/pets/petsCreate', {id})
     }
 
     static async createAction(req, res){
 
           
-        const user = session.userid
-                     
-
-        console.log(user)
+        const id = req.body.id
+        const user = await User.findById(id)
 
         const {name, breed, color, weight, genre, category, images} = req.body
-        const available = true;
+        const available = true
+        const adopter = false
 
-        // const pet = new Pet({
-        //     name, 
-        //     breed,
-        //     color,
-        //     weight,
-        //     genre,
-        //     category,
-        //     available,
-        //     images: [],
-        //     user: {
-        //         _id: user._id,
-        //         name: user.name,
-        //         phone: user.phone,
-        //         image: user.image
-        //     }
-        // })
+        const pet = new Pet({
+            name, 
+            breed,
+            color,
+            weight,
+            genre,
+            category,
+            available,
+            images: [],
+            user: {
+                _id: user._id,
+                name: user.name,
+                phone: user.phone,
+                image: user.image
+            },
+            adopter,
+        })
 
-        // try{
+        try{
+            await pet.save()
+            req.flash('message', 'Pet cadastrado com Sucesso.')
+            res.redirect('/user/page')
 
-        //     await pet.save()
-        //     req.flash('message', 'Pet cadastrado com Sucesso.')
-        //     res.redirect('user/page')
-
-        // }catch(err){
-        //     console.log(err)
-        // }
+        }catch(err){
+            console.log(err)
+        }
 
         
     }
