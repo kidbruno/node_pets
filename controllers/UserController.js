@@ -1,7 +1,9 @@
 const User = require('../models/User')
+const Pet = require('../models/Pet')
 const bcrypt = require('bcrypt')
-const { imageUpload } = require('../helpers/image-uploads')
+const { imageUpload } = require('../helpers/imageUpload')
 const fs = require('fs')
+const path = require("path")
 
 module.exports = class UserController{
 
@@ -11,7 +13,9 @@ module.exports = class UserController{
 
     static async createAction(req, res){
         
-        const {name, email, password, conf_password, phone, image} = req.body
+        const {name, email, password, conf_password, phone} = req.body
+
+        let image = ''
 
         if(req.file){
             image = req.file.filename 
@@ -54,7 +58,7 @@ module.exports = class UserController{
 
             //garantindo que a session do usuario ta sendo salva antes de redireciona-lo
             req.session.save(() => {
-                res.redirect('/')
+                res.redirect(`/user/page/${req.session.userid }`)
             })
 
         }catch(err){
@@ -90,13 +94,20 @@ module.exports = class UserController{
 
         req.flash('message', 'Usuário Logado.')
         req.session.save(() => {
-            res.redirect('/user/page')
+            res.redirect(`/user/page/${req.session.userid}`)
         })
 
     }
 
-    static userPage(req, res) {
-        res.render('../views/users/userPets')
+    static  userPage(req, res) {
+
+        const id = req.params.id
+
+        const userPets =  Pet.find({'user._id': id}).lean()
+
+        console.log(userPets)
+
+        res.render('../views/users/userPage')
     }
 
     static async edit(req, res){
@@ -138,6 +149,6 @@ module.exports = class UserController{
             }
         )
 
-        res.render('../views/users/userPets')
+        res.render('../views/users/userPage')
     }
 }

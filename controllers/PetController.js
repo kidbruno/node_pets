@@ -1,6 +1,7 @@
-const flash = require('express-flash');
+const flash = require('express-flash')
 const Pet = require('../models/Pet')
-const User = require('../models/User');
+const User = require('../models/User')
+// const { imageUpload } = require('../helpers/imageUpload')
 module.exports = class PetController{
 
     static showDogs(req, res){
@@ -23,11 +24,11 @@ module.exports = class PetController{
 
     static async createAction(req, res){
 
-          
         const id = req.body.id
         const user = await User.findById(id)
 
-        const {name, breed, color, weight, genre, category, images} = req.body
+        const {name, breed, color, weight, genre, category} = req.body
+        const images = req.files
         const available = true
         const adopter = false
 
@@ -49,10 +50,15 @@ module.exports = class PetController{
             adopter,
         })
 
+        //conf pr salvar img
+        // images.map((image) => {
+        //     pet.images.push(image.filename)
+        // })
+
         try{
             await pet.save()
             req.flash('message', 'Pet cadastrado com Sucesso.')
-            res.redirect('/user/page')
+            res.redirect(`/user/page/${id}`)
 
         }catch(err){
             console.log(err)
@@ -60,5 +66,6 @@ module.exports = class PetController{
 
         
     }
+
 
 }
