@@ -1,0 +1,54 @@
+<div class="auth-container">
+
+    <h2>Meu Pet</h2>
+    <form action="/pets/edit" method="POST">
+
+        <input type="hidden" name="id_user" value="{{userPetID}}">
+
+        <input type="hidden" name="id_pet" value="{{pet._id}}">
+        
+        <div class="form-control">
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name" value="{{pet.name}}">
+        </div>
+
+        <div class="form-control">
+            <label for="raca">Raça:</label>
+            <input type="text" name="breed" id="raca" value="{{pet.breed}}" >
+        </div>
+
+        <div class="form-control">
+            <label for="cor">Cor:</label>
+            <input type="text" name="color" id="cor" value="{{pet.color}}" >
+        </div>
+
+        <div class="form-control">
+            <label for="peso">Peso:</label>
+            <input type="number" name="weight" id="peso" value="{{pet.weight}}" >
+        </div>
+
+        <div>
+            <strong><label for="image">Imagem:</label></strong>
+            <input type="file" name="images" id="image" multiple>
+        </div><br/>
+
+        <div>
+            <input type="submit" class="pet-edit" value="Editar Pet">
+        </div>
+    </form>
+
+    {{!-- <div>
+        <form action="" method="GET">
+            <input type="hidden" name="user_id" value="{{userPetID}}">
+            <a href="/pets/delete/{{pet._id}}"><input class="pet-delete" value="Deletar Pet"/></a>
+        </form>
+    </div> --}}
+
+    <div>
+        <form action="/pets/delete/{{pet._id}}" method="POST">
+            <input type="hidden" name="user_id" value="{{userPetID}}">
+            <input type="submit" class="pet-delete" value="Deletar">
+        </form> 
+    </div>
+    
+</div>
