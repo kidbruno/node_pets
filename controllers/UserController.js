@@ -1,9 +1,10 @@
 const User = require('../models/User')
-const Pet = require('../models/Pet')
+const Pets = require('../models/Pet')
 const bcrypt = require('bcrypt')
 const { imageUpload } = require('../helpers/imageUpload')
 const fs = require('fs')
 const path = require("path")
+// const ObjectId = require('mongoose').Types.ObjectId
 
 module.exports = class UserController{
 
@@ -99,15 +100,28 @@ module.exports = class UserController{
 
     }
 
-    static  userPage(req, res) {
+    static async userPage(req, res) {
 
         const id = req.params.id
+        const user = await User.findById(id).lean()
 
-        const userPets =  Pet.find({'user._id': id}).lean()
+        //ver o que o ponto lean faz
+        // if(!ObjectId.isValid(user)){
+        //     req.flash('message', 'Id inválido.')
+        //     console.log('id kkkkk')
+        //     res.render('../views/users/userPage')
+        //     return
+        // }
 
-        console.log(userPets)
+        const userPets = await Pets.find({ 'user._id': user._id}).lean()
 
-        res.render('../views/users/userPage')
+        if(!userPets){
+            req.flash('message', 'Pet não encontrado.')
+            res.render('../views/users/userPage')
+            return
+        }
+       
+        res.render('../views/users/userPage', {user, userPets})
     }
 
     static async edit(req, res){

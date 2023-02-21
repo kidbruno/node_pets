@@ -67,5 +67,45 @@ module.exports = class PetController{
         
     }
 
+    static async editPet(req, res){
+
+        const id = req.params.id
+        const pet = await Pet.findById(id).lean()
+        
+        const userPetID = pet.user._id
+
+        res.render('../views/pets/petDetails', {pet, userPetID})
+    }
+
+    static async updatePet(req, res){
+
+        const id_user = req.body.id_user
+        const id_pet = req.body.id_pet
+
+        const {name, breed, color, weight} = req.body
+  
+        const pet = await Pet.updateMany(
+            {_id: id_pet},
+            {
+                name,
+                breed,
+                color,
+                weight
+
+            }
+        )
+
+        res.redirect(`/user/page/${id_user}`)
+
+    }
+
+    static async delete(req, res){
+
+        const petId = req.params.id
+        const userId = req.body.user_id
+
+        await Pet.deleteOne({petId})
+        res.redirect(`/user/page/${userId}`)
+    }
 
 }

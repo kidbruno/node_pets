@@ -1,0 +1,23 @@
+<div class="container">
+    {{#if user}}
+        <h2>Bem Vindo a sua Área {{user.name}}</h2>
+    {{/if}}
+    
+    <h2>Seus Pets Disponivéis Para Adoção</h2>
+    <div class="container list">
+
+        {{#each userPets}} 
+            <div class="item">
+                <img src="/images/pastor-alemao.jpg" class="item--image" />
+                <div class="item--name">{{breed}}</div>
+                <div class="item--color">{{color}}</div>
+                <div class="item--genre">{{genre}}</div>
+                <div><a href="/pets/edit/{{_id}}">Detalhes</a></div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div>
+        <h2>Animais Adotados</h2>
+    </div>
+</div>

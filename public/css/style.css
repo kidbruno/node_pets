@@ -297,3 +297,30 @@ form p a{
     display: flex;
     flex-direction: column;
 }
+
+.auth-container .pet-edit{
+    float: left;
+    background-color: #102581;
+}
+
+.auth-container .pet-delete{
+    max-width: 85px;
+    float: left;
+    background-color: #d41818;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 0.5em 1.2em;
+    margin-bottom: 1em;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.auth-container .pet-delete:hover{
+    background-color: #d41818;
+}
+ 
+
