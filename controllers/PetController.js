@@ -5,15 +5,15 @@ const User = require('../models/User')
 module.exports = class PetController{
 
     static showDogs(req, res){
-        res.render('dogs')
+        res.render('../views/pets/dogs')
     }
 
     static showCats(req, res){
-        res.render('../views/cats')
+        res.render('../views/pets/cats')
     }
 
     static showFish(req, res){
-        res.render('../views/fish')
+        res.render('../views/pets/fish')
     }
 
     static create(req, res){

@@ -33,16 +33,9 @@
         </div><br/>
 
         <div>
-            <input type="submit" class="pet-edit" value="Editar Pet">
+            <input type="submit" class="pet-edit" value="Editar">
         </div>
     </form>
-
-    {{!-- <div>
-        <form action="" method="GET">
-            <input type="hidden" name="user_id" value="{{userPetID}}">
-            <a href="/pets/delete/{{pet._id}}"><input class="pet-delete" value="Deletar Pet"/></a>
-        </form>
-    </div> --}}
 
     <div>
         <form action="/pets/delete/{{pet._id}}" method="POST">

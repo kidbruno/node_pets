@@ -3,7 +3,6 @@ const router = express.Router()
 const PetController = require('../controllers/PetController')
 const { imageUpload } = require('../helpers/imageUpload')
 
-//cachorro
 router.get('/dogs', PetController.showDogs)
 router.get('/cats', PetController.showCats)
 router.get('/fish', PetController.showFish)

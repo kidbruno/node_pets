@@ -105,14 +105,6 @@ module.exports = class UserController{
         const id = req.params.id
         const user = await User.findById(id).lean()
 
-        //ver o que o ponto lean faz
-        // if(!ObjectId.isValid(user)){
-        //     req.flash('message', 'Id inválido.')
-        //     console.log('id kkkkk')
-        //     res.render('../views/users/userPage')
-        //     return
-        // }
-
         const userPets = await Pets.find({ 'user._id': user._id}).lean()
 
         if(!userPets){
